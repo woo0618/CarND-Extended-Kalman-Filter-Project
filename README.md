@@ -36,6 +36,7 @@ root
     |   tools.cpp
     |   tools.h
 ```
+kalman_filter.cpp contains the actual Kalman filter equations which is divided into two main process: Preidct and Update steps. Each time a new measurement is made from a given sensor, FusionEKF.cpp modify the F and Q matrices prior to the prediction step based on the elapsed time between measurements. The Jacobian matrix is computed either for the lidar or radar sensor measurement and corresponding update function is called. Every time main.cpp calls fusionEKF.ProcessMeasurement(measurement_pack_list[k]), the code in FusionEKF.cpp will run. If this is the first measurement, the Kalman filter will try to initialize the object's location with the sensor measurement.
  
 INPUT: values provided by the simulator to the c++ program
 ["sensor_measurement"] => the measurement that the simulator observed (either lidar or radar)
@@ -47,6 +48,4 @@ OUTPUT: values provided by the c++ program to the simulator
 ["rmse_y"]
 ["rmse_vx"]
 ["rmse_vy"]
-
-kalman_filter.cpp contains the actual Kalman filter equations which is divided into two main process: Preidct and Update steps. Each time a new measurement is made from a given sensor, FusionEKF.cpp modify the F and Q matrices prior to the prediction step based on the elapsed time between measurements. The Jacobian matrix is computed either for the lidar or radar sensor measurement and corresponding update function is called. Every time main.cpp calls fusionEKF.ProcessMeasurement(measurement_pack_list[k]), the code in FusionEKF.cpp will run. If this is the first measurement, the Kalman filter will try to initialize the object's location with the sensor measurement.
 
