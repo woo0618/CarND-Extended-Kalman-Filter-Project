@@ -23,14 +23,7 @@ public:
   // measurement covariance matrix
   Eigen::MatrixXd R_;
 
-  /**
-   * Constructor
-   */
   KalmanFilter();
-
-  /**
-   * Destructor
-   */
   virtual ~KalmanFilter();
 
   /**
